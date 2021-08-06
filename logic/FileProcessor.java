@@ -9,12 +9,13 @@ import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Main {
+public class FileProcessor {
 
-	public static void main(String[] args) {
-		Path fp = Paths.get("C:\\Users\\KYRIAKOS\\Desktop\\internet.txt");
-		String parameter = "sentence";
-
+	public void editFile(String path, String parameter) {
+		// Path fp = Paths.get("C:\\Users\\KYRIAKOS\\Desktop\\internet.txt");
+		// String parameter = "sentence";
+		Path fp = Paths.get(path);
+		// TODO unhandled exception
 		try
 		{
 			String content = new String (Files.readAllBytes(fp), Charset.forName("UTF-8"));
