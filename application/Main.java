@@ -12,7 +12,8 @@ import javafx.stage.Stage;
 import logic.FileProcessor;
 
 
-public class Main extends Application {
+public class Main extends Application
+{
 	@Override
 	public void start(Stage primaryStage) throws Exception
 	{
@@ -37,11 +38,17 @@ public class Main extends Application {
 		
         Button btn = new Button("Button");
         
+        Label message = new Label("");
+        //StringProperty sp = new SimpleStringProperty(fp.getState());
+        //sp.bind(fp.stateProperty());
+        message.textProperty().bind(fp.stateProperty());
+        
         VBox content = new VBox(5);
         
         content.getChildren().add(fileRow);
         content.getChildren().add(wordRow);
         content.getChildren().add(btn);
+        content.getChildren().add(message);
         
         //root.getChildren().add(row); // does not display components properly, but rather squeezed
         root.setCenter(content);
@@ -56,7 +63,8 @@ public class Main extends Application {
 		primaryStage.show();
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		launch(args);
 	}
 }
