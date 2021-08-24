@@ -33,8 +33,6 @@ public class FileProcessor
 		}
 		catch(InvalidPathException e)
 		{
-			// TODO display message on ui
-			System.out.println("Invalid path");
 			this.setState("Invalid path");
 			return;
 		}
@@ -42,13 +40,12 @@ public class FileProcessor
 		try
 		{
 			String content = new String (Files.readAllBytes(fp), Charset.forName("UTF-8"));
-			System.out.println(content);
+			// System.out.println(content);
 			// count occurrences
 			Pattern p = Pattern.compile("(?i)" + parameter); // ?i ignores upper/lower case
 			Matcher m = p.matcher(content);
 			int counter = 0;
 			while (m.find()) counter++;
-			System.out.println(counter); 
 			
 			content = content.replaceAll("(?i)" + Pattern.quote(parameter), parameter.toUpperCase());
 			System.out.println(content);
